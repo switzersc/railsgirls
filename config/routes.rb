@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+
   resources :comments
 
   get 'home/index'
@@ -6,6 +8,12 @@ Rails.application.routes.draw do
   resources :ideas
   
   root "home#index"
+
+  resources :sessions 
+
+  get 'login' => "sessions#new"
+  get "logout" => "sessions#destroy"
+  # => "localhost:3000/login"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -28,6 +28,13 @@
 	  </div>
 	</nav>	
 
+	<% if current_user %>
+		<h2><%= current_user.name %> is logged in</h2>
+		<%= link_to "Log out", logout_path %>
+	<% else %>
+		<%= link_to "Log in", login_path %>
+	<% end %>
+
 	<div class="container">
 		<%= yield %>
 	</div>
